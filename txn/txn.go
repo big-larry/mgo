@@ -14,9 +14,9 @@ import (
 	"strings"
 	"sync"
 
-	mgo "github.com/globalsign/mgo"
+	mgo "github.com/big-larry/mgo"
 
-	"github.com/globalsign/mgo/bson"
+	"github.com/big-larry/mgo/bson"
 
 	crand "crypto/rand"
 	mrand "math/rand"
