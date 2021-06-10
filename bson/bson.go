@@ -203,6 +203,14 @@ type RawDocElem struct {
 // http://www.mongodb.org/display/DOCS/Object+Ids
 type ObjectId string
 
+func NewObjectIdFromHex(s string) (ObjectId, error) {
+	d, err := hex.DecodeString(s)
+	if err != nil || len(d) != 12 {
+		return "", fmt.Errorf("invalid input to ObjectIdHex: %q", s)
+	}
+	return ObjectId(d), nil
+}
+
 // ObjectIdHex returns an ObjectId from the provided hex representation.
 // Calling this function with an invalid hex representation will
 // cause a runtime panic. See the IsObjectIdHex function.
